@@ -30,6 +30,9 @@
                     <mat-error *ngIf="signupForm.get('email').hasError('required')">
                         Email is required
                     </mat-error>
+                    <mat-error *ngIf="signupForm.get('email').hasError('email')">
+                        Email should be valid
+                    </mat-error>
                 </mat-form-field>
             </div>
 
