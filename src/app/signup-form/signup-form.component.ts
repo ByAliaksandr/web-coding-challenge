@@ -12,9 +12,10 @@ export class SignupFormComponent implements OnInit {
     firstname: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-    passwordMath: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z]).{8,}')])
   });
+
+  public hiddenPassword = true;
 
   constructor() { }
 
