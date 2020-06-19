@@ -1,10 +1,10 @@
-<mat-card>
-    <mat-card-title>Sign Up</mat-card-title>
+<mat-card class="signup-form col-5 mx-auto">
+    <mat-card-title class="title">Sign Up</mat-card-title>
     <mat-card-content>
         <form [formGroup]="signupForm">
 
             <div class="form-group">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="full-width-field">
                     <mat-label>First name</mat-label>
                     <input matInput formControlName="firstname" autocomplete="off" />
                     <mat-error *ngIf="signupForm.get('firstname').hasError('required')">
@@ -14,7 +14,7 @@
             </div>
 
             <div class="form-group">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="full-width-field">
                     <mat-label>Last name</mat-label>
                     <input matInput formControlName="lastname" autocomplete="off" />
                     <mat-error *ngIf="signupForm.get('lastname').hasError('required')">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="full-width-field">
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" autocomplete="off" />
                     <mat-error *ngIf="signupForm.get('email').hasError('required')">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="form-group">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="full-width-field">
                     <mat-label>Password</mat-label>
                     <input matInput formControlName="password" autocomplete="off" />
                     <mat-error *ngIf="signupForm.get('password').hasError('required')">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="form-group">
-                <mat-form-field appearance="outline">
+                <mat-form-field appearance="outline" class="full-width-field">
                     <mat-label>Repeat Password</mat-label>
                     <input matInput formControlName="passwordMath" autocomplete="off" />
                     <mat-error *ngIf="signupForm.get('passwordMath').hasError('required')">
@@ -53,7 +53,7 @@
                 </mat-form-field>
             </div>
 
-            <button mat-raised-button color="primary">Sign Up</button>
+            <button mat-raised-button color="primary" class="full-width-field">Sign Up</button>
         </form>
     </mat-card-content>
 </mat-card>
