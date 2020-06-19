@@ -40,16 +40,13 @@
                     <button type="button" mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword" [attr.aria-label]="'Hide password'">
                         <mat-icon>{{hiddenPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                    <mat-error *ngIf="signupForm.get('password').hasError('required')">
-                        Password is required
-                    </mat-error>
-                    <mat-error *ngIf="signupForm.get('password').hasError('pattern')">
-                        Password should be a minimum of eight characters and contain lower & uppercase letters
+                    <mat-error *ngIf="signupForm.get('password').invalid">
+                        {{ getPasswordErrorMessage() }}
                     </mat-error>
                 </mat-form-field>
             </div>
 
-            <button mat-raised-button color="primary" class="full-width-field" [attr.aria-label]="'Sign Up'"></button>
+            <button mat-raised-button color="primary" class="full-width-field" [attr.aria-label]="'Sign Up'">Sign Up</button>
         </form>
     </mat-card-content>
 </mat-card>

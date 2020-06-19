@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { shouldNotMatch } from '../validators/shoud-not-match.validator';
 
 @Component({
   selector: 'app-signup-form',
@@ -8,19 +9,37 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SignupFormComponent implements OnInit {
 
-  public readonly signupForm = new FormGroup({
-    firstname: new FormControl('', [Validators.required]),
-    lastname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z]).{8,}')])
-  });
+  signupForm: FormGroup;
 
-  public hiddenPassword = true;
+  hiddenPassword = true;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    (window as any).zz = this.signupForm;
+    this.signupForm = this.formBuilder.group({
+      firstname: new FormControl('', [Validators.required]),
+      lastname: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z]).{8,}')]),
+    },
+    {
+      validator: [shouldNotMatch('password', 'firstname'), shouldNotMatch('password', 'lastname')],
+    });
+  }
+
+  getPasswordErrorMessage(): string {
+    const passwordControl = this.signupForm.controls['password'];
+    if (passwordControl.hasError('required')) {
+      return 'Password is required';
+    } else if (passwordControl.hasError('pattern')) {
+      return 'Password should be a minimum of eight characters and contain lower & uppercase letters';
+    } else if (passwordControl.hasError('shouldNotMatchfirstname')) {
+      return 'Password should not match first name';
+    } else if (passwordControl.hasError('shouldNotMatchlastname')) {
+      return 'Password should not match last name';
+    }
+
+    return '';
   }
 
 }
