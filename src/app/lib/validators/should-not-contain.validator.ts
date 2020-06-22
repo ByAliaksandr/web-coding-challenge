@@ -14,7 +14,7 @@ export function shouldNotContain(controlName: string, anotherControlName: string
 
     const errors = control.errors || {};
 
-    if (control.value && control.value.includes(anotherControl.value)) {
+    if (control.value && anotherControl.value && control.value.includes(anotherControl.value)) {
       errors[errorKey] = true;
       control.setErrors(errors);
     } else {
