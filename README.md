@@ -23,16 +23,12 @@ This project relies on Angular Material and Bootstrap Grid system. Angular Mater
 
 This project employs prettier with a pre-commit tool. This re-formats files that are marked as "staged" via git add before a commit.
 
-The project contains to 2 pages: `signupForm` page and dummy `home` page; 1 `signup` service to sign up; 1 `shouldNotMatch` custom form validator. All components & services are covered by unit tests. The `signupForm` page is covered by e2e tests.
-
-The `signupForm` page improvements:
-
-- The page should be a container for subcomponents. So we can split it into 'header' component and only 'form' component.
+The project contains to 2 pages: `signup` page and dummy `home` page; 1 `signup` service to sign up; 1 `shouldNotContain` custom form validator. All components & services are covered by unit tests. The `signup` page is covered by e2e tests. The `signup` page has a `signupForm` component to stress out the component based architecture.
 
 Tests improvements:
 
-- `shouldNotMatch` validator unit tests must be extended to cover more scenarios.
-- The `signupForm` e2e tests must be extended to at least one successful scenario.
+- `shouldNotContain` validator unit tests must be extended to cover more scenarios.
+- The `signup` e2e tests must be extended to at least one successful scenario.
 
 ## The project structure
 
