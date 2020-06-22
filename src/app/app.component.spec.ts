@@ -8,6 +8,6 @@ describe('AppComponent', () => {
   });
 
   it('should create', () => {
-    expect(AppComponent).toBeTruthy();
+    expect(appComponent).toBeTruthy();
   });
 });

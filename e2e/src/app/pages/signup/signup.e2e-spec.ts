@@ -1,7 +1,7 @@
 import { Signup } from './signup.po';
 import { browser, logging } from 'protractor';
 
-describe('Signup Form', () => {
+describe('Signup', () => {
   let page: Signup;
 
   beforeEach(() => {

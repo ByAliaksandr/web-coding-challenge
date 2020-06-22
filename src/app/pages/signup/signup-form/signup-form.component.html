@@ -1,0 +1,52 @@
+<form [formGroup]="signupForm" (ngSubmit)="submit()" class="signup-form">
+  <section class="form-group">
+    <mat-form-field appearance="outline" class="full-width-field">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstname" autocomplete="off" />
+      <mat-error *ngIf="signupForm.get('firstname').hasError('required')">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section class="form-group">
+    <mat-form-field appearance="outline" class="full-width-field">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastname" autocomplete="off" />
+      <mat-error *ngIf="signupForm.get('lastname').hasError('required')">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section class="form-group">
+    <mat-form-field appearance="outline" class="full-width-field">
+      <mat-label>Email</mat-label>
+      <input matInput [type]="'email'" formControlName="email" autocomplete="off" />
+      <mat-error *ngIf="signupForm.get('email').hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email').hasError('email')">
+        Email should be valid
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section class="form-group">
+    <mat-form-field appearance="outline" class="full-width-field">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hiddenPassword ? 'password' : 'text'" formControlName="password" autocomplete="off" />
+      <button type="button" mat-icon-button matSuffix (click)="hiddenPassword = !hiddenPassword" [attr.aria-label]="'Hide password'">
+        <mat-icon>{{ hiddenPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="signupForm.get('password').invalid">
+        {{ getPasswordErrorMessage() }}
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <button mat-raised-button color="primary" class="full-width-field" [attr.aria-label]="'Sign Up'">Sign Up</button>
+  <mat-error *ngIf="submitError">
+    Ooops... Something went wrong! Please retry or contact to the support desk.
+  </mat-error>
+</form>

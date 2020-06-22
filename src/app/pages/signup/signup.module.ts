@@ -7,9 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 @NgModule({
-  declarations: [SignupComponent],
+  declarations: [SignupComponent, SignupFormComponent],
   imports: [CommonModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatIconModule, MatInputModule, MatButtonModule],
 })
 export class SignupModule {}
