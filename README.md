@@ -25,6 +25,10 @@ This project employs prettier with a pre-commit tool. This re-formats files that
 
 The project contains to 2 pages: `signupForm` page and dummy `home` page; 1 `signup` service to sign up; 1 `shouldNotMatch` custom form validator. All components & services are covered by unit tests. The `signupForm` page is covered by e2e tests.
 
+The `signupForm` page improvements:
+
+- The page should be a container for subcomponents. So we can split it into 'header' component and only 'form' component.
+
 Tests improvements:
 
 - `shouldNotMatch` validator unit tests must be extended to cover more scenarios.
@@ -48,7 +52,7 @@ This project has `pages` and `lib` folders. The page embraces and isolates the b
 
 - Why TestBed is not used?
 
-  It is just very slow for big production projects.
+  It is just very slow for big production projects. In many cases it is not required to instantiate a wrapping module to test the component's functionality.
 
 - Why cypress is not used?
 
