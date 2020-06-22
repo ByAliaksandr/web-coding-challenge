@@ -1,7 +1,7 @@
 import { SignupForm } from './signup-form.po';
 import { browser, logging } from 'protractor';
 
-describe('Web coding challenge', () => {
+describe('Signup Form', () => {
   let page: SignupForm;
 
   beforeEach(() => {

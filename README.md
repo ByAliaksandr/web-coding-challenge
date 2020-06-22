@@ -1,12 +1,13 @@
 # WebCodingChallenge
 
 This project is a single page app with a sign-up form.
-The form has 4 fields firstname, lastname, email and password.
+The form has 4 fields first name, last name, email and password.
+
 Password validation supports
 
 - a minimum of eight characters
 - lower and uppercase letters
-- not contain user’s first or last name
+- not contain the user’s first or last name
 
 Email validation is a standard angular forms email validator. Please check the link below for more details.
 https://angular.io/api/forms/Validators#email
@@ -27,23 +28,23 @@ The project contains to 2 pages: `signupForm` page and dummy `home` page; 1 `sig
 Tests improvements:
 
 - `shouldNotMatch` validator unit tests must be extended to cover more scenarios.
-- The `signupForm` e2e tests must be extended to at least one sucessful scenario.
+- The `signupForm` e2e tests must be extended to at least one successful scenario.
 
 ## The project structure
 
-This project has `pages` and `lib` folders. The page embraces and isolate the business logic. Normally a page has varios subcomponents. The `lib` folder is a shared folder for common components and services.
+This project has `pages` and `lib` folders. The page embraces and isolates the business logic. Normally a page has various subcomponents. The `lib` folder is a shared folder for common components and services.
 
 ## FAQ
 
 - Why angular forms email validator is used?
 
-  It is a well-tested and robast solution which not require extra effort. It is defenetly save time.
-  Async validation can help us to verify if user's email is already used. So this can be pottential improvement.
+  It is a well-tested and robust solution which doesn't require extra effort. It saves time.
+  Async validation can help us to verify if a user's email is already used. So this can be a potential improvement.
 
 - Why Angular Material is used?
 
   Angular Material perfectly fits for projects with forms which require various validation scenarios.
-  Angular Material UI and animation bring the project to the 'production-ready': it stays on brand; it works across the web and mobile; it is optimized for Angular.
+  Angular Material UI and animation bring the project to the 'production-ready' state: it stays on brand; it works across the web and mobile; it is optimized for Angular.
 
 - Why TestBed is not used?
 
@@ -51,7 +52,7 @@ This project has `pages` and `lib` folders. The page embraces and isolate the bu
 
 - Why cypress is not used?
 
-  I personally love cypress mainly for the debugging experience. In this project I stick with default CLI e2e configuration which is protractor.
+  I love cypress mainly for the debugging experience. In this project, I stick with default CLI e2e configuration which is protractor.
 
 ## Development server
 
