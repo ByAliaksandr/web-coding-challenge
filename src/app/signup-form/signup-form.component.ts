@@ -37,7 +37,7 @@ export class SignupFormComponent implements OnInit {
     );
   }
 
-  public ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
