@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RouterParts } from '../app-routing-path.enum';
+import { SingupRequest } from './service/signup-request.interface';
 
 @Component({
   selector: 'app-signup-form',
@@ -46,12 +47,7 @@ export class SignupFormComponent implements OnInit {
 
     if (this.signupForm.valid) {
       this.signupService
-        .signup({
-          firstName: this.signupForm.controls['firstname'].value,
-          lastName: this.signupForm.controls['lastname'].value,
-          email: this.signupForm.controls['email'].value,
-          password: this.signupForm.controls['password'].value,
-        })
+        .signup(this.getSignupData())
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(
           () => {
@@ -78,6 +74,15 @@ export class SignupFormComponent implements OnInit {
     }
 
     return '';
+  }
+
+  private getSignupData(): SingupRequest {
+    return {
+      firstName: this.signupForm.controls['firstname'].value,
+      lastName: this.signupForm.controls['lastname'].value,
+      email: this.signupForm.controls['email'].value,
+      password: this.signupForm.controls['password'].value,
+    };
   }
 
   private resetForm(): void {
