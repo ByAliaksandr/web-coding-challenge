@@ -1,6 +1,6 @@
 import { browser, by, element, ElementFinder, ElementArrayFinder } from 'protractor';
 
-export class SignupForm {
+export class Signup {
   navigateTo(): Promise<unknown> {
     return browser.get(browser.baseUrl) as Promise<unknown>;
   }

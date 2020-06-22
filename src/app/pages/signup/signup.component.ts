@@ -9,11 +9,11 @@ import { RouterParts } from '../../app-routing-path.enum';
 import { SingupRequest } from './service/signup-request.interface';
 
 @Component({
-  selector: 'app-signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class SignupFormComponent implements OnInit {
+export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
   hiddenPassword = true;

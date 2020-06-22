@@ -1,4 +1,4 @@
-import { SignupFormComponent } from './signup-form.component';
+import { SignupComponent } from './signup.component';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from './service/signup.service';
@@ -7,7 +7,7 @@ import { RouterParts } from '../../app-routing-path.enum';
 import { throwError } from 'rxjs';
 
 describe('SignupFormComponent', () => {
-  let signupFormComponent: SignupFormComponent;
+  let signupFormComponent: SignupComponent;
   let formBuilterSpy: jasmine.SpyObj<FormBuilder>;
   let routerSpy: jasmine.SpyObj<Router>;
   let signupServiceSpy: jasmine.SpyObj<SignupService>;
@@ -16,7 +16,7 @@ describe('SignupFormComponent', () => {
     formBuilterSpy = jasmine.createSpyObj('formBuilder', ['group']);
     routerSpy = jasmine.createSpyObj('router', ['navigate']);
     signupServiceSpy = jasmine.createSpyObj('signupService', ['signup']);
-    signupFormComponent = new SignupFormComponent(formBuilterSpy, routerSpy, signupServiceSpy);
+    signupFormComponent = new SignupComponent(formBuilterSpy, routerSpy, signupServiceSpy);
   });
 
   it('should create', () => {

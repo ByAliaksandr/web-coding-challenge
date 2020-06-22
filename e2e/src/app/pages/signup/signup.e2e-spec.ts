@@ -1,11 +1,11 @@
-import { SignupForm } from './signup-form.po';
+import { Signup } from './signup.po';
 import { browser, logging } from 'protractor';
 
 describe('Signup Form', () => {
-  let page: SignupForm;
+  let page: Signup;
 
   beforeEach(() => {
-    page = new SignupForm();
+    page = new Signup();
   });
 
   it('should display Sign Up message', async () => {
