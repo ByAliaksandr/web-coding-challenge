@@ -4,6 +4,8 @@ import { shouldNotMatch } from '../validators/shoud-not-match.validator';
 import { SignupService } from './service/signup.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { RouterParts } from '../app-routing-path.enum';
 
 @Component({
   selector: 'app-signup-form',
@@ -18,7 +20,7 @@ export class SignupFormComponent implements OnInit {
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private formBuilder: FormBuilder, private signupService: SignupService) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private signupService: SignupService) {}
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group(
@@ -53,11 +55,10 @@ export class SignupFormComponent implements OnInit {
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(
           () => {
-            // navigate to home page
             this.resetForm();
+            this.router.navigate([RouterParts.Home]);
           },
           error => {
-            // show the error
             this.submitError = true;
           }
         );

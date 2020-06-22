@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignupFormComponent } from './signup-form/signup-form.component';
-
-enum RouterParts {
-  SignupForm = 'signup-form'
-}
+import { RouterParts } from './app-routing-path.enum';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: RouterParts.SignupForm, pathMatch: 'full'},
-  { path: RouterParts.SignupForm, component: SignupFormComponent}
+  { path: '', redirectTo: RouterParts.SignupForm, pathMatch: 'full' },
+  { path: RouterParts.SignupForm, component: SignupFormComponent },
+  { path: RouterParts.Home, component: HomeComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
