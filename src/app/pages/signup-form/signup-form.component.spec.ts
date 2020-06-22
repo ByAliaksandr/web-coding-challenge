@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignupService } from './service/signup.service';
 import { of } from 'rxjs/internal/observable/of';
-import { RouterParts } from '../app-routing-path.enum';
+import { RouterParts } from '../../app-routing-path.enum';
 import { throwError } from 'rxjs';
 
 describe('SignupFormComponent', () => {

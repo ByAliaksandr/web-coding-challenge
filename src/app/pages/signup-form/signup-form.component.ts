@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { shouldNotMatch } from '../validators/should-not-match.validator';
+import { shouldNotMatch } from '../../lib/validators/should-not-match.validator';
 import { SignupService } from './service/signup.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { RouterParts } from '../app-routing-path.enum';
+import { RouterParts } from '../../app-routing-path.enum';
 import { SingupRequest } from './service/signup-request.interface';
 
 @Component({

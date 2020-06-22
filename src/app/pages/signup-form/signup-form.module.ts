@@ -8,18 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [SignupFormComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-  ]
+  imports: [CommonModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatIconModule, MatInputModule, MatButtonModule],
 })
-export class SignupFormModule { }
+export class SignupFormModule {}
