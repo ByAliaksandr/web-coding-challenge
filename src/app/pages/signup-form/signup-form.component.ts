@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { shouldNotMatch } from '../../lib/validators/should-not-match.validator';
+import { shouldNotContain } from '../../lib/validators/should-not-contain.validator';
 import { SignupService } from './service/signup.service';
 import { Subject } from 'rxjs/internal/Subject';
 import { takeUntil } from 'rxjs/operators';
@@ -32,7 +32,7 @@ export class SignupFormComponent implements OnInit {
         password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[A-Z])(?=.*[a-z]).{8,}')]),
       },
       {
-        validator: [shouldNotMatch('password', 'firstname'), shouldNotMatch('password', 'lastname')],
+        validator: [shouldNotContain('password', 'firstname'), shouldNotContain('password', 'lastname')],
       }
     );
   }
@@ -67,10 +67,10 @@ export class SignupFormComponent implements OnInit {
       return 'Password is required';
     } else if (passwordControl.hasError('pattern')) {
       return 'Password should be a minimum of eight characters and contain lower & uppercase letters';
-    } else if (passwordControl.hasError('shouldNotMatchfirstname')) {
-      return 'Password should not match first name';
-    } else if (passwordControl.hasError('shouldNotMatchlastname')) {
-      return 'Password should not match last name';
+    } else if (passwordControl.hasError('shouldNotContainfirstname')) {
+      return 'Password should not contain first name';
+    } else if (passwordControl.hasError('shouldNotContainlastname')) {
+      return 'Password should not contain last name';
     }
 
     return '';
